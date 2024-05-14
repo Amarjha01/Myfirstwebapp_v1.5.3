@@ -1,0 +1,103 @@
+<!-- The provided code is an HTML document that creates a responsive login and signup form. Here is a
+breakdown of what the code does: -->
+<!-- The provided code is an HTML document that creates a responsive login and signup form. Here is a
+breakdown of what the code does: -->
+<!DOCTYPE html>
+<!-- Coding By CodingNepal - codingnepalweb.com -->
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title> Responsive Login and Signup Form </title>
+
+        <!-- CSS -->
+        <link rel="stylesheet" type="text/css" href="css/style.css">
+        
+                
+        <!-- Boxicons CSS -->
+        <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
+                        
+    </head>
+   <!-- The provided HTML code creates a responsive login and signup form. Here's a breakdown of what the
+   code does: -->
+    <body>
+        <section class="container forms">
+            <div class="form login">
+                <div class="form-content">
+                    <header>Login</header>
+                    <form action="/login">
+                        <div class="username field input-field">
+                            <input type="username"  placeholder="Username" class="input">
+                        </div>
+
+                        <div class="password  field input-field">
+                            <input type="password" placeholder="Password" class="password">
+                            <i class='bx bx-hide eye-icon'></i>
+                        </div>
+
+                        <div class="form-link">
+                            <a href="/forgotpassword" class="forgot-pass">Forgot password?</a>
+                        </div>
+
+                        <div class="field button-field">
+                            <button class="loginbtn">Login</button>
+                        </div>
+                    </form>
+
+                    <div class="form-link">
+                        <span>Registar your self if haven't.<a href="student-signup" target="_blank" class="link signup-link">Signup</a></span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- JavaScript -->
+        <!-- <script src="index.js"></script> -->
+      
+<script>
+ const loginbtn = document.querySelector('.loginbtn');
+
+loginbtn.addEventListener('click', (event) => {
+    event.preventDefault();
+const username = document.querySelector('.username input').value;
+const password = document.querySelector('.password input').value;
+// Create an object to store student login data
+const studentlogin = {
+    username: username,
+    password: password
+};
+
+ 
+if (username === "" || password === "") {
+    alert('Please fill in all fields');
+}else{
+// Send a POST request to the server
+fetch('/login', {
+    method: 'POST',
+    headers: {
+        'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(studentlogin)
+})
+.then(response => response.json())
+.then(data => {
+    if (data.redirectTo) {
+        // Redirect to the specified URL
+        window.location.href = data.redirectTo;
+    } else if (data.error) {
+        // Display error message to the user
+        alert(data.error);
+    } else {
+        // Handle other response data or errors
+        console.log(data.message);
+    }
+})
+.catch(error => {
+    console.error('There was a problem with your fetch operation:', error);
+});
+}
+});
+</script>       
+    </body>
+</html>

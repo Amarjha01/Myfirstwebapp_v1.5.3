@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>College Portal - Dashboard</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="userbody">
+  <h1 class="userh">Welcome, <%= user.name %> (<%= user.studentID %>)</h1>
+
+  <h2 class="userh">Your Courses</h2>
+  <% if (user.classes.length > 0) { %>
+    <ul>
+      <% for (const course of user.classes) { %>
+        <li>
+          <a href="/course/<%= course._id %>">
+            <%= course.code %> - <%= course.name %> (<%= course.instructor %>)
+          </a>
+        </li>
+      <% } %>
+    </ul>
+  <% } else { %>
+    <p>You are not currently enrolled in any classes.</p>
+  <% } %>
+
+  <h2 class="userh">Announcements</h2>
+  <ul>
+    <% for (const announcement of announcements) { %>
+      <li><b><%= announcement.title %></b><br>
+        <%= announcement.message %></li>
+    <% } %>
+  </ul>
+
+  <h2 class="userh">Upcoming Assignments</h2>
+  <% if (user.classes.length > 0) { %>
+    <ul>
+      <% for (const course of user.classes) { %>
+        <% if (course.assignments.length > 0) { %>
+          <h3 class="userh"><%= course.code %> - <%= course.name %></h3>
+          <ul>
+            <% for (const assignment of course.assignments) { %>
+              <li><%= assignment %></li>
+            <% } %>
+          </ul>
+        <% } %>
+      <% } %>
+    </ul>
+  <% } else { %>
+    <p>No upcoming assignments found.</p>
+  <% } %>
+</body>
+</html>

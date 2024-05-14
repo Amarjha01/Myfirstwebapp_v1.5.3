@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Success</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+
+<div class="passbody">
+    <h1 id="sucessfull">Your form has been successfully submitted!</h1>
+    <p class="passpara">Please create a login password to proceed.</p>
+    <div class="pass-box">
+    <div class="innerbox">
+        <div class="username input-fields">
+            <label>Username</label>
+            <input type="number"name="username" placeholder="Username" >
+            </div>
+        
+        
+            <div class="password input-fields">
+                <label>Create Password</label>
+                <input type="password"name="password" placeholder="ex:Fesc@129" >
+            </div>
+            <div class="password input-fields">
+                <label>Confirm Password</label>
+                <input type="password"name="cpassword" placeholder="ex:Fesc@129" >
+            </div>
+    </div>
+    </div>
+
+    <p class="passpara">Next button will redirect you to login page.</p>
+   <div class="passbtn">
+    <button id="nxtbtn">
+        <span class="btnText">Next</span>
+        <i class="fa-solid fa-caret-right"></i>
+    </button>
+   </div>
+    
+   <h4>
+    Note:<br>
+    <i class="fa-solid fa-star-of-life"></i>
+    Password must be at least 8 characters long and contain at least one uppercase letter, one lowercase letter, one number and one special character.<br>
+    <i class="fa-solid fa-star-of-life"></i>
+    Registration number will be your username.
+   </h4>
+</div>
+
+<!-- script -->
+
+<!-- <script src="index.js"></script> -->
+<script src="js/password.js"></script>
+</body>
+</html>

@@ -1,0 +1,597 @@
+/* The above code is a combination of CSS styles for a website layout. It includes styling for a header
+section with a background image, navigation bar, text boxes, buttons, and responsive design for
+smaller screens. Additionally, there are styles for a courses section with individual course cards,
+a footer section, an about us page, a blog page, a dropdown login feature, a student login page, a
+teacher login page, and a sign-up page. The code also includes media queries for adjusting the
+layout based on different screen sizes. */
+*{
+    margin: 0px;
+    padding: 0px;
+}
+
+.header {
+    min-height: 100vh;
+    width: 100%;
+    background-image: linear-gradient(rgba(4,9,30,0.7),rgba(4,9,30,0.7)), url(../images/banner.png);
+    background-size: cover;
+    background-position: center;
+    position: relative;
+}
+nav{
+    display: flex;
+    padding: 2% 6%;
+    justify-content: space-between;
+    align-items: center;
+}
+nav img{
+    width: 150px;
+}
+
+.nav-links{
+    flex: 1;
+    text-align: right;
+}
+.nav-links ul li{
+    list-style: none;
+display: inline-block;
+padding: 8px 12px;
+/* margin-right: 20px; */
+/* position: relative; */
+}
+.nav-links ul li a{
+    color: #fff;
+    text-decoration:none;
+    font-size: 13px;
+}
+
+
+.text-box{
+    width: 90%;
+    color: #fff;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    text-align: center;
+}
+
+.text-box h1{
+    font-size: 5em;
+}
+
+.text-box p{
+    margin: 10px 0px  30px;
+    font-size: 14px;
+}
+.hero-btn{
+    text-decoration: none;
+    color: #fff;
+    border: 1px solid #fff;
+    padding: 12px 32px;
+    font-size: 13px;
+    position: relative;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.hero-btn:hover{
+    border: 1px solid #140152;
+    background-color: #140152;
+    transition: 0.3s;
+    color:#fdbe02;
+}
+nav .fas{
+    display: none;
+}
+@media(max-width: 700px){
+    .text-box h1{
+        font-size: 30px;
+    }
+    .nav-links ul li{
+        display: block;
+        font-size: 15px;
+    }
+    .nav-links{
+        position: absolute;
+        height: 100vh;
+        width: 200px;
+        background: #f44336;
+        top: 0px;
+        right: -260px;
+        z-index: 2;
+        text-align: left;
+        font-size: 15px;
+        transition: .5s;
+    }
+    
+    nav .fas{
+        display: block;
+        color: #fff;
+        margin: 10px;
+        font-size: 22px;
+        cursor: pointer;
+       
+    }
+    .nav-links{
+        padding: 30px;
+    }
+}
+
+/* <!--------courses--------> */
+
+.Courses{
+    width: 80%;
+    text-align: center;
+    margin: auto;
+    padding-top: 100px;
+}
+
+h1{
+    font-size: 36px;
+    font-weight: 600;
+}
+p{
+    color: #457b9d;
+    font-weight: 300;
+    font-size: 14px;
+    padding: 10px;
+    line-height: 22px;
+}
+
+.row{
+    margin-top: 5%;
+    display: flex;
+    justify-content: space-between;
+    /* border: 1px solid black; */
+}
+.course-col{
+    flex-basis: 31%;
+    background: #fff3f3;
+    border-radius: 10px;
+    margin-bottom: 5%;
+    padding: 20px 12px;
+    box-sizing: border-box;
+    /* border: 1px solid blueviolet; */
+}
+
+h3{
+    text-align: center;
+    font-weight: 600;
+    margin: 10px 0px;
+}
+.course-col:hover{
+    box-shadow: 0 0 20px 0px rgba(0,0,0,.2);
+}
+@media(max-width:700px){
+    .row{
+        flex-direction: column;
+    }
+}
+
+.footer{
+    width: 100%;
+    text-align: center;
+padding: 30px 0;
+}
+.footer h4{
+    margin-top: 25px;
+    margin-bottom: 20px;
+    font-weight: 600;
+
+}
+.icon{
+    color: #f44336;
+    margin: 0 13px;
+    cursor: pointer;
+    padding: 18px 0;
+}
+
+
+
+
+
+/* ----------- About us pagr ----------- */
+
+
+.sub-header{
+    min-height: 50vh;
+    width: 100%;
+     background-size:cover;
+    background-position:center;
+    position: relative;
+    background-image: url(../images/background.jpg);
+}
+
+/* -----------blog page ---------- */
+.blog-text-box h1{
+    font-size: 35px;
+    text-align: center;
+    margin-top: 55px;
+    color: #fff;
+}
+
+.blog-content{
+    width: 80%;
+    padding: 60px 0;
+    margin: auto;
+}
+.blog-left{
+    flex-basis: 65%;
+}
+.blog-left img{
+    width: 100%;
+}
+/* -------dropdown login ------- */
+
+/* Dropdown Styles */
+.nav-links .login {
+    position: relative;
+}
+
+.nav-links .login .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #67fbf4;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.6);
+    z-index: 1;
+    right: 0; /* Adjust dropdown position to the right */
+    top: 100%; /* Position it below the login button */
+}
+
+.nav-links .login:hover .dropdown-content {
+    display: block;
+}
+
+.nav-links .login .dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.nav-links .login .dropdown-content a:hover {
+    background-color: #d183e9;
+}
+
+
+
+
+/* ------------student login page ----------------- */
+
+/* Google Fonts - Poppins */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+/* body {
+    background-image: url('C:\Users\Amarj\Videos\web-dev\ResponsiveLogin&Signup Form\images\pexels-element-digital-1370295.jpg');
+    background-size: cover;
+    background-position: center; 
+} */
+
+.container{
+    background-size: cover; /* Adjust as needed */
+    background-position: center; /* Adjust as needed */
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: purple;
+    column-gap: 30px;
+}
+.form{
+    position: absolute;
+    max-width: 430px;
+    width: 100%;
+    padding: 30px;
+    border-radius: 6px;
+    background: white;
+}
+.form.signup{
+    opacity: 0;
+    pointer-events: none;
+}
+.forms.show-signup .form.signup{
+    opacity: 1;
+    pointer-events: auto;
+}
+.forms.show-signup .form.login{
+    opacity: 0;
+    pointer-events: none;
+}
+header{
+    font-size: 28px;
+    font-weight: 600;
+    color: #232836;
+    text-align: center;
+}
+form{
+    margin-top: 30px;
+}
+.form .field{
+    position: relative;
+    height: 50px;
+    width: 100%;
+    margin-top: 20px;
+    border-radius: 6px;
+}
+.field input,
+.field button{
+    height: 100%;
+    width: 100%;
+    border: none;
+    font-size: 16px;
+    font-weight: 400;
+    border-radius: 6px;
+}
+.field input{
+    outline: none;
+    padding: 0 15px;
+    border: 1px solid#CACACA;
+}
+.field input:focus{
+    border-bottom-width: 2px;
+}
+.eye-icon{
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+    font-size: 18px;
+    color: #8b8b8b;
+    cursor: pointer;
+    padding: 5px;
+}
+.field button{
+    color: #fff;
+    background-color: #81b29a;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+.field button:hover{
+    background-color: #fca311;
+}
+.form-link{
+    text-align: center;
+    margin-top: 10px;
+}
+.form-link span,
+.form-link a{
+    font-size: 14px;
+    font-weight: 400;
+    color: #232836;
+}
+.form a{
+    color: #0171d3;
+    text-decoration: none;
+}
+.form-content a:hover{
+    text-decoration: underline;
+}
+
+
+.line::before{
+    content: 'Or';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #FFF;
+    color: #8b8b8b;
+    padding: 0 15px;
+}
+.media-options a{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+
+
+@media screen and (max-width: 400px) {
+    .form{
+        padding: 20px 10px;
+    }
+    
+}
+
+
+/* ---------------teachers login page ----------------- */
+
+.techrlgn{
+    background-image: url(../images/design.png);
+    height: 100vh;
+    /* width: 100%; */
+    background-size: cover;
+}
+
+.navbar {
+   border: 1px solid black;
+   display: flex;
+}
+
+.border{
+    width: 80%;
+    height: 280px;
+    border-width: 10px 10px 0px 10px;
+    border-style: solid;
+    border-color: white;
+    
+    margin-left: 60px;
+   margin-bottom: 20px;
+   border-top-left-radius: 50px;
+   border-top-right-radius: 50px;
+   position: absolute;
+   top: 110px;
+   left: 60px;
+}
+
+
+/* ---------------------set password page --------------------- */
+#sucessfull{
+color: #008000;
+text-align: center;
+font-size: 60px;
+}
+.passpara{
+    text-align: center;
+    font-size: 20px;
+    color: white;
+}
+.pass-box{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 300px;
+    /* width: 80%; */
+    flex-direction: column;
+}
+
+.innerbox{
+background-color: rgba(120, 86, 13, 0.587);
+display: flex;
+flex-wrap: wrap;
+width: 350px;
+height: 90%;
+justify-content: space-evenly;
+/* border: 1px solid black; */
+border-radius: 10px;
+}
+label{
+    color: #fca211bb;
+    font-weight: 900;
+    font-size: 25px;
+    display: block;
+}
+
+input{
+    width: 300px;
+    height: 40px;
+    border: none;
+    border-radius: 5px;
+    /* box-shadow: #232836; */
+}
+.username{
+    margin-top: 10px;
+}
+
+.passbody{
+    background-image: url('../images/passpage-backgroundimg.png');
+    height: 100vh;
+    width: 100%;
+    background-size: cover;   
+}
+
+
+.btn:hover{
+    cursor: pointer;
+}
+.passbtn{
+    display: flex;
+    height: 70px;
+    width: 100vw;
+    justify-content: center;
+    align-items: center;
+}
+#nxtbtn{
+    border: none;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(20, 33, 61, 0.463);
+    color: white;
+    border-radius: 5px;
+    max-width: 200px;
+    width: 100%;
+    height: 45px;
+    font-size: 30px;
+    margin: 25px 0;
+    cursor: pointer;
+    transition: 0.2s;
+    /* background: #ffffff; */
+    border-radius: 15px;
+    box-shadow: 0px 5px 15px rgba(92, 91, 91, 0.7);   
+}
+#nxtbtn i{
+    margin: 8px;
+    margin-top: 15px;
+ }
+
+ .input-fields input{
+    outline: none;
+    border: 1px solid #aaa;
+    border-radius: 5px;
+    font-size: 14px;
+    font-weight: 900;
+    color: #333;
+    background-color: rgba(255, 255, 255, 0.596);
+    /* padding: 0 15px; */
+height: 42px;
+width: 300px;
+margin: 8px, 0;
+}
+
+.input-fields input:is(:focus, :valid){
+    box-shadow: 0 3px 6px rgba(0,0,0,.3);
+}
+
+h4{
+    color: white;
+    text-align: left;
+    
+}
+h4 i{
+    color: red;
+    font-size: 5px;
+    position:relative;
+    bottom: 10px;
+    
+}
+
+/* ................................................userpage................................................. */
+
+.userbody {
+    font-family: sans-serif;
+    margin: 2rem;
+  }
+  
+  .userh {
+    margin-bottom: 1rem;
+  }
+  
+  ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  li {
+    margin-bottom: 0.5rem;
+  }
+  
+  table {
+    border-collapse: collapse;
+    width: 100%;
+  }
+  
+  th, td {
+    padding: 0.5rem;
+    border: 1px solid #ddd;
+  }
+  
+  th {
+    text-align: left;
+    background-color: #f2f2f2;
+  }
+  
+  .announcement b {
+    font-weight: bold;
+  }
+  

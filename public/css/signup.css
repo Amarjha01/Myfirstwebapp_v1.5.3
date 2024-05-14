@@ -1,0 +1,215 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #4fcd92d8;
+}
+
+.container{
+    /* border: 2px solid black; */
+    position: relative;
+    max-height: 200vh;
+    max-width: 900px;
+    width: 100%;
+    background-color: #ffffff;
+    border-radius: 6px;
+    padding: 30px;
+    box-shadow: 0px 5px 10px rgba(0,0,0,.6);
+    margin: 0 15px;
+}
+.container header::before{
+    content: "";
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    height: 3px;
+    width: 27px;
+    background-color: #40f47f;
+    border-radius: 8px;
+
+}
+.container header{
+    position: relative;
+    font-size: 20px;
+    font-weight: 600;
+    color: #333 ;
+}
+
+
+.container form{
+    /* border: 1px solid black; */
+    padding-left: 15px;
+    border-radius: 5px;
+    position: relative;
+    margin: 16px;
+    min-height: 490px;
+    background-color: #ffffff;
+    overflow: hidden;
+
+}
+.container form .form{
+    position: absolute;
+    background-color: #ffffff;
+    transition: 0.3s ease;
+}
+.second{
+    display: none;
+}
+.container form .form .second{
+    opacity: 0;
+    pointer-events: none;
+    
+    transform: translateX(100%);
+}
+
+form.secActive .form.second{
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateX(0);
+    display: block;
+}
+form.secActive .form.first{
+    opacity: 0;
+    pointer-events: none;
+    transform: translateX(-100%);
+
+}
+
+.container form .title{
+    display: block;
+    margin-bottom: 8px;
+    font-size: 16px;
+    font-weight: 500;
+    margin: 6px 0;
+    /* border: 1px solid black; */
+}
+
+.container form .fields{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+}
+
+form .fields .input-fields{
+    display: flex;
+    flex-direction: column;
+    width: calc(100% / 3 -  15);
+    margin: 4px 0;
+    
+}
+
+.input-fields label{
+font-size: 12px;
+font-weight: 500;
+color: #2e2e2e;
+}
+
+.input-fields input{
+    outline: none;
+    border: 1px solid #aaa;
+    border-radius: 5px;
+    font-size: 14px;
+    font-weight: 400;
+    color: #333;
+    /* padding: 0 15px; */
+height: 42px;
+width: 250px;
+margin: 8px, 0;/
+}
+
+.input-fields input:is(:focus, :valid){
+    box-shadow: 0 3px 6px rgba(0,0,0,.3);
+}
+
+input[type='date']{
+    color: #707070;
+}
+input[type='date']:valid{
+    color: #333;
+}
+
+
+.container form button, .backbtn{
+    border: none;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+    /* background-color: #4070f4; */
+    border-radius: 5px;
+    max-width: 200px;
+    width: 100%;
+    height: 45px;
+    font-size: 20px;
+    margin: 25px 0;
+    cursor: pointer;
+    transition: 0.2s;
+    /* background: #ffffff; */
+    border-radius: 15px;
+    box-shadow: 0px 5px 15px rgba(92, 91, 91, 0.7);   
+}
+.container form button,
+.container form .backbtn{
+    font-size: 14px;
+    font-weight: 400;
+}
+
+
+
+ form button:hover{
+    background-color: #4fcd92;
+    /* color: #ffffff; */
+}
+
+form button i{
+   margin:  8px;
+} 
+form .buttons{
+    display: flex;
+    align-items: center;
+}
+
+form .buttons button, .backbtn{
+    margin-right: 14px;
+}
+
+
+
+.container form .details{
+    margin-top: 30px;
+}
+
+.container form .details.accadmic{
+    margin-top: 10px;
+}
+
+@media(max-width:750px){
+    .container form{
+        overflow-y: scroll;
+    }
+    .container form::-webkit-scrollbar{
+        display: none;
+    }
+
+
+    form .fields .input-fields{
+        width: calc(100% / 2 -  15);
+        
+    }
+}
+
+
+@media(max-width:550px){
+    form .fields .input-fields{
+        width: 100%;
+        
+    }
+}

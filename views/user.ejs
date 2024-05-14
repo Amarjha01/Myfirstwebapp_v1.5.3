@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>College Portal - Welcome <%= user.name %></title>
+  <link rel="stylesheet" href="css/style.css"> 
+</head>
+<body id="userbody">
+  <h1 class="userh">Welcome, <%= user.name %> (<%= user.studentID %>)</h1>
+
+  <h2 class="userh">Your Information</h2>
+  <ul>
+    <li>Email: <%= user.email %></li>
+    <li>Program: <%= user.program %></li>
+  </ul>
+
+  <h2 class="userh">Your Class Schedule</h2>
+  <% if (user.classes.length > 0) { %>
+    <table>
+      <thead>
+        <tr>
+          <th>Course Code</th>
+          <th>Course Name</th>
+          <th>Day</th>
+          <th>Time</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% for (const course of user.classes) { %>
+          <tr>
+            <td><%= course.code %></td>
+            <td><%= course.name %></td>
+            <td><%= course.day %></td>
+            <td><%= course.time %></td>
+          </tr>
+        <% } %>
+      </tbody>
+    </table>
+  <% } else { %>
+    <p>You are not currently enrolled in any classes.</p>
+  <% } %>
+
+  <h2 class="userh">Announcements</h2>
+  <ul>
+    <% for (const announcement of announcements) { %>
+      <li><b><%= announcement.title %></b> (<%= announcement.date %>)<br>
+        <%= announcement.message %></li>
+    <% } %>
+  </ul>
+  <script>
+const announcementList = document.querySelector('.announcements');
+
+document.querySelectorAll('.announcement').forEach(announcement => {
+  const toggleButton = document.createElement('button');
+  toggleButton.textContent = 'Hide';
+  announcement.appendChild(toggleButton);
+
+  toggleButton.addEventListener('click', () => {
+    announcement.classList.toggle('hidden');
+    toggleButton.textContent = announcement.classList.contains('hidden') ? 'Show' : 'Hide';
+  });
+});
+
+  </script>
+</body>
+</html>

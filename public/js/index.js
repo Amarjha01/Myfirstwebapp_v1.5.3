@@ -1,13 +1,45 @@
 /*The below JavaScript functions hideMenu and showMenu control the visibility of a navigation menu by
   adjusting its right position.*/
 
-var navlinks = document.getElementById('navlinks');
-function hideMenu(){
-    navlinks.style.right = "-260px";
+// var navlinks = document.getElementById('navlinks');
+// function hideMenu(){
+//     navlinks.style.display = "-260px";
+// }
+// function showMenu(){
+//     navlinks.style.right ="0";
+// }
+
+function showMenu() {
+    document.getElementById("navlinks").style.right = "0";
+    document.querySelector('.fa-bars').style.display = 'none';
+    document.querySelector('.fa-times').style.display = 'block';
 }
-function showMenu(){
-    navlinks.style.right ="0";
+
+function hideMenu() {
+    document.getElementById("navlinks").style.right = "-200px";
+    document.querySelector('.fa-bars').style.display = 'block';
+    document.querySelector('.fa-times').style.display = 'none';
 }
+
+function checkNavVisibility() {
+    const navbar = document.getElementById('navlinks');
+    const windowWidth = window.innerWidth;
+    if (windowWidth > 754) {
+        navbar.style.right = '0'; // Ensure it's visible
+        document.querySelector('.fa-bars').style.display = 'none';
+        document.querySelector('.fa-times').style.display = 'none';
+    } else {
+        navbar.style.right = '-200px'; // Ensure it's hidden initially
+        document.querySelector('.fa-bars').style.display = 'block';
+        document.querySelector('.fa-times').style.display = 'none';
+    }
+}
+
+// Initial check
+checkNavVisibility();
+
+// Check on window resize
+window.addEventListener('resize', checkNavVisibility);
 
 // .....................................................................................................
 /* This part of the code is handling form navigation functionality. It selects elements from the DOM
